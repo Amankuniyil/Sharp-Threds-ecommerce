@@ -1,0 +1,129 @@
+{% load static %}
+
+
+
+
+{% if orders %}
+<div class="table-responsive mt-3 pt-3" style="background-color: #ffffff;" id="sales-report-table">
+  <div class="float-right mb-3 mr-3">
+    <input type="button" class="btn btn-outline-danger btn-md mr-3" id="btnExport" value="Export To PDF" />
+    <button class="btn btn-outline-success btn-md mr-3" onclick="ExportToExcel('xlsx')">Export To Excel</button>
+    <button class="btn btn-outline-warning " id="btn-export" onclick="exportHTML();">Export To Doc</button>
+  </div>
+  <table class="table table-bordered" id="sales_report_table">
+      <thead>
+        <tr>
+          <th>
+            No.
+          </th>
+          <th>
+            Product Name
+          </th>
+          <th>
+            Item Sold
+          </th>
+          <th>
+            In Stock
+          </th>
+
+          <th>
+            Amount Received
+          </th>
+        </tr>
+      </thead>
+      
+      {% for order in orders %}
+      <tbody>
+        <tr class="table">
+          <td>
+            {{forloop.counter}}
+          </td>
+          <td>
+            {{order.user_order_page__product__product_name}}
+          </td>
+          <td>
+            {{order.dcount}}
+          </td>
+          <td>
+            {{order.user_order_page__product__stock}}  
+          </td>
+          
+          <td>
+            ₹{{order.total}}
+          </td>
+        </tr>
+      </tbody>
+      {%endfor%}
+    </table>
+</div>
+
+
+<canvas id="orderChart"  class=""></canvas>
+<script>
+  
+  var data = {
+      labels: ["Total Orders","delivered", "out for delivery","cancelled","returned" ],
+      datasets: [{
+        label: ' of Orders',
+        data: ['{{order_count_in_month}}' ,'{{delivered}}','{{out_of_delivery}}','{{cancelled}}','{{returned}}'],
+        backgroundColor: [
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 159, 64, 0.2)'
+        ],
+        borderColor: [
+          'rgba(54, 162, 235, 1)',
+          'rgba(255,99,132,1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)'
+        ],
+        borderWidth: 1,
+        fill: true
+      }]
+      };
+    
+      var options = {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true,
+          }
+        }]
+      },
+      legend: {
+        display: false
+      },
+      elements: {
+        point: {
+          radius: 0
+        }
+      }
+  
+      };
+    
+    
+  
+  
+      // Get context with jQuery - using jQuery's .get() method.
+      if ($("#orderChart").length) {
+      var barChartCanvas = $("#orderChart").get(0).getContext("2d");
+      // This will get the first returned node in the jQuery collection.
+      var barChart = new Chart(barChartCanvas, {
+        type: 'bar',
+        data: data,
+        options: options
+      });
+      }
+  
+</script>
+
+{% else %}
+
+<h3 class="h3 text-center text-white">No Data Available!!!</h3>
+
+{% endif %}

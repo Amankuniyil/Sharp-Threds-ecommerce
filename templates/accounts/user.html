@@ -1,0 +1,149 @@
+{%  extends 'base.html' %}
+{% load static %}
+
+
+
+
+
+{% block extracss %}
+<link rel="stylesheet" href="{% static '/css/user.css'%}" type="text/css">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<style>
+
+    .lo{
+        width: 265px;
+        
+    }
+
+    .no-dot {
+    list-style-type: none;
+  }
+  .mt{
+    
+    margin-bottom: 320px;
+  }
+  .kl{
+    background-color:rgb(239, 239, 239);
+    height: 190px;
+    
+   
+    
+    
+  }
+  .nl{
+    margin-bottom: 100px;
+  }
+  p{
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+    padding-left: 10px;
+  }
+
+</style>
+    {% endblock extracss %}
+    {% block content %}
+           
+          <!-- Breadcrumb Section Begin -->
+<section class="breadcrumb-option nl">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb__text">
+                    <h4>Shop</h4>
+                    <div class="breadcrumb__links">
+                        <a href="./index.html">Home</a>
+                        <span>User</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Breadcrumb Section End -->
+        
+      
+      <div class="mt container bootstrap snippets bootdey">
+      <div class="row">
+      <div class="profile-nav col-md-3">
+      <div class="panel">
+    
+      <ul class="no-dot ">
+     <li ><form action="#" method="post">
+        {% csrf_token %}
+        
+        
+         <button class="lo btn btn-light " action="#" type="submit" name='mybtn2' value={{excel_path}}>Edit profile</button>
+         </form></li>
+         <li ><form action="{% url 'myAddress' %}" method="post">
+            {% csrf_token %}
+            
+            
+             <button class="lo btn btn-light " action="{% url 'myAddress' %}" type="submit" name='mybtn2' value={{excel_path}}>Address</button>
+             </form></li>
+
+             <li ><form action="{% url 'myOrders' %}" method="post">
+                {% csrf_token %}
+                
+                
+                 <button class="lo btn btn-light " action="{% url 'myOrders' %}" type="submit" name='mybtn2' value={{excel_path}}>Orders</button>
+                 </form></li>
+             
+     <li><form action="{% url 'change_password' %}" method="post">
+        {% csrf_token %}
+        
+        {{ form.as_p }}
+          <button class="btn btn-light lo" action="{% url 'change_password' %}" type="submit" name='mybtn2' value={{excel_path}}>change password</button>
+        </form></li>
+     <li> <form action="{% url 'logout' %}" method="post">
+        {% csrf_token %}
+      <button class="btn btn-light lo"  type="submit" action="{% url 'logout' %}">logout</button>
+    </form></li>
+      </ul>
+      </div>
+      </div>
+      <div class="profile-info col-md-9">
+      <div class="panel">
+      
+    
+      </div>
+
+      <div class="panel kl">
+      
+      <div class="panel-body bio-graph-info pt-2">
+      
+      <div class="">
+      <div class=" row">
+        <div class="col-lg-6 col-12 mt-2">
+      <p><span>First Name </span>: {{ user.first_name }}</p>
+    </div>
+      
+      <div class="col-lg-6 col-12 mt-2">
+      <p><span>Last Name </span>:{{ user.last_name }}</p>
+      </div>
+      <div class="col-lg-6 col-12 mt-4">
+      <p><span>Birthday</span>: 13 July 1983</p>
+      </div>
+      <div class="col-lg-6 col-12 mt-4">
+      <p><span>Email </span>: {{ user.email }}</p>
+      </div>
+      <div class="col-lg-6 col-12 mt-4 mb-4">
+      <p><span>Mobile </span>: {{ user.phone_number }}</p>
+      </div>
+      <div class="col-lg-6 col-12 mt-4 mb-4">
+      <p><span>Phone </span>: 88 (02) 123456</p>
+      </div>
+    </div>
+      </div>
+      </div>
+      </div>
+      <div>
+      </div>
+      </div>
+      </div>
+      </div>
+      <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+      <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+      <script type="text/javascript">
+        
+      </script>
+{% endblock content %}

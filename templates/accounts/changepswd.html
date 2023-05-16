@@ -1,0 +1,148 @@
+{%  extends 'base.html' %}
+
+{% load static %}
+
+
+{% block extracss %}
+
+<style>
+        	body {
+    margin: 0;
+    color: #2e323c;
+    background: #fcfcfc;
+    position: relative;
+    height: 100%;
+}
+
+.lo{
+        width: 265px;
+        
+    }
+    .no-dot {
+    list-style-type: none;
+  }
+
+  .cp1{
+    margin-left: 300px;
+    margin-bottom: 300px;
+    margin-top: 50px;
+  }
+  .jk{
+    margin-bottom: 300px;
+    background-color: rgb(255, 255, 255);
+
+  }
+</style>
+
+{% endblock extracss %}
+
+{% block content %}
+
+
+          <!-- Breadcrumb Section Begin -->
+          <section class="breadcrumb-option nl">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="breadcrumb__text">
+                            <h4>User</h4>
+                            <div class="breadcrumb__links">
+                                <a href="./index.html">Home</a>
+                                <a href="./index.html">User</a>
+                                <span>Password</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Breadcrumb Section End -->
+
+
+        <div class="container mt-3">
+            <div class="row gutters">
+            
+                <div class="col-md-3">
+            
+                    <div class="panel">
+                        
+                
+                        <ul class="no-dot ">
+                       <li ><form action="{% url 'editProfile' %}" method="post">
+                          {% csrf_token %}
+                          
+                          
+                           <button class="lo btn btn-light " action="#" type="submit" name='mybtn2' value={{excel_path}}>Edit profile</button>
+                           </form></li>
+                           <li ><form action="{% url 'myAddress' %}" method="post">
+                              {% csrf_token %}
+                              
+                              
+                               <button class="lo btn btn-light " action="{% url 'myAddress' %}" type="submit" name='mybtn2' value={{excel_path}}>Address</button>
+                               </form></li>
+                  
+                               <li ><form action="{% url 'myOrders' %}" method="post">
+                                  {% csrf_token %}
+                                  
+                                  
+                                   <button class="lo btn btn-light " action="{% url 'myOrders' %}" type="submit" name='mybtn2' value={{excel_path}}>Orders</button>
+                                   </form></li>
+            
+            
+                                   
+                               
+                       <li><form action="{% url 'change_password' %}" method="post">
+                          {% csrf_token %}
+                          
+                          
+                            <button class="btn btn-light lo" action="{% url 'change_password' %}" type="submit" name='mybtn2' value={{excel_path}}>change password</button>
+                          </form></li>
+                       <li> <form action="{% url 'logout' %}" method="post">
+                          {% csrf_token %}
+                        <button class="btn btn-light lo"  type="submit" action="{% url 'logout' %}">logout</button>
+                      </form></li>
+                        </ul>
+                        </div>
+            
+            
+            
+                </div>
+            
+            <div class="col-md-9 jk">
+
+                <h4 class="mb-3">change password</h4>
+
+                <form method="post" action="{% url 'change_password' %}">
+                    {% csrf_token %}
+                    <div>
+                    <label for="{{ form.old_password.id_for_label }}">Old password:</label>
+                </div>
+                <div>
+            {{ form.old_password }}
+            
+            </div>
+            
+            <div>
+            <label for="{{ form.new_password1.id_for_label }}">New password:</label>
+            </div>
+            {{ form.new_password1 }}
+            
+            
+            
+            <div>
+            <label for="{{ form.new_password2.id_for_label }}">Confirm new password:</label>
+            </div>
+            {{ form.new_password2 }}
+            
+            <div>
+                    <button class="btn btn-outline-secondary  mt-1" type="submit">change Password</button>
+                </div>
+                </form>
+            </div>
+            </div>
+        </div>
+         
+            
+            
+           
+    {% endblock content %}

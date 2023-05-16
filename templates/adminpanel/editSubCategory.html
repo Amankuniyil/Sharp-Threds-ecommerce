@@ -1,0 +1,50 @@
+{%  extends 'adminpanel/adminbase.html' %}
+
+{% load static %}
+{% block extracss %}
+<style>
+
+</style>
+    {% endblock extracss %}
+{% block content %}
+<div class="text-center mx-auto mt-2 w-50"></div>
+
+<div class="container mt-3" style="min-height: 33rem;">
+  <h2 class="text-center text-dark  mb-5">Edit Sub Category</h2>
+  <form action="{% url 'editSubCategory' subCategory.slug %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <div class="col form-group">
+        <label >Sub Category Name</label><br>
+        {{form.sub_category_name}}  
+    </div>
+    <div class="col form-group">
+        <label > Slug</label><br>
+        {{form.slug}}  
+    </div>
+    <div class="col-6 form-group">
+        <label > Category</label><br>
+        {{form.category}}  
+    </div>
+    <div class="col-6 form-group">
+      <label > Description</label><br>
+      {{form.description}}  
+    </div>
+    <div class="col-6 form-group">
+      <label >Is Featured</label><br>
+      {{form.is_featured}}  
+    </div>
+                     
+    <div class="col form-group">
+       <a href=""> <input type="submit" name="submit" id="submit" class="btn btn-warning" value="Save"/></a>
+    </div>
+  </form>
+</div>
+
+<script>
+    document.getElementById("id_sub_category_name").onkeyup=function(){
+        document.getElementById("id_slug").value=document.getElementById("id_sub_category_name").value.toLowerCase().replaceAll(" ","-");
+      }
+</script>
+
+{% endblock content %}

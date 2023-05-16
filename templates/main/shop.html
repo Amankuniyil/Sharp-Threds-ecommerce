@@ -1,0 +1,235 @@
+{%  extends 'base.html' %}
+
+{% load static %}
+
+
+{% block extracss %}
+
+<style>
+    .op{
+        border-style: solid;
+        border-radius: 10px;
+        border-color: rgb(236, 236, 236);
+        border-width: .25px;
+        background-color: rgb(255, 249, 249);
+       
+        
+        
+    }
+    .t1{
+        text-align: center;
+        margin-top: 5px;
+    }
+    .io{
+        height: 300px;
+        
+    }
+   
+
+</style>
+
+    {% endblock extracss %}
+
+{% block content %}
+
+<!-- Breadcrumb Section Begin -->
+<section class="breadcrumb-option">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb__text">
+                    <h4>Shop</h4>
+                    <div class="breadcrumb__links">
+                        <a href="./index.html">Home</a>
+                        <span>Shop</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Breadcrumb Section End -->
+
+<section class="breadcrumb-section set-bg" data-setbg="{% static 'images/breadcrumb.jpg' %}">
+    <div class="container">
+        <div class="row">
+            
+        </div>
+    </div>
+  </section>
+  <!-- Breadcrumb Section End -->
+  
+  <!-- Product Section Begin -->
+  <section class="product spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-5">
+                <div class="sidebar">
+                    <div class="sidebar__item ">
+                        <div class="shop__sidebar__search mt-5">
+                            <form action="{% url 'search' %}" method="GET">
+                                <input class="form-control style="border:none;" type="text" placeholder="Search here" name="keyword" id="keyword" >
+                                <button type="submit"  class="fa fa-search"></button>
+                               
+                            </form>
+                        </div>
+
+
+
+                        <h4>Shop by Category</h4>
+                        <ul class="overflow-auto mt-3"  style="max-height: 29rem;">
+                          <li><a class="text-dark f-5" href="{% url 'etc' %}">
+                              <h5>All Products</h5>
+                          </a></li>
+                          {% for category in cat_links %}
+                          <li><a class="h6 text-dark f-5" data-toggle="collapse" href="#{{category.slug}}" role="button" aria-expanded="false" aria-controls="{{category.slug}}">
+                              {{category.category_name}}
+                          </a></li>
+                        <div class="collapse" id="{{category.slug}}">
+                          <div class="ml-3 ">
+                              {% comment %} {% for sub_category in sub_cat_links %}
+  
+                              {% if sub_category.category.id == category.id %}
+  
+                              <a href="{{sub_category.get_url}}"><p>{{sub_category.sub_category_name}}</p></a>
+  
+                              {% endif %}
+      
+                               {% endfor %} {% endcomment %}
+  
+                               {% for i in category.sub_category_set.all %}
+                               
+                               <a href="{{i.get_url}}"><p>{{i.sub_category_name}}</p></a>
+                               
+                               {% endfor %}
+                          </div>
+                        </div>
+                        {% endfor %}
+                        </ul>
+
+                        
+
+                        
+                        <div class="range-slider">
+                            <h5 class="mt-4">Shop by Price</h5>
+                          
+
+                         
+
+
+                          <form method="POST" action="{% url 'shop_filter' %}">
+                            {% csrf_token %}
+                            <input type="hidden" name="minamount" value="500">
+                            <input type="hidden" name="maxamount" value="1500">
+                            <button class="mt-1" type="submit" style="border:none; background-color:transparent;">500-1500</button>
+                        </form>
+                        <form method="POST" action="{% url 'shop_filter' %}">
+                            {% csrf_token %}
+                            <input type="hidden" name="minamount" value="1500">
+                            <input type="hidden" name="maxamount" value="2500">
+                            <button class="mt-1" type="submit" style="border:none; background-color:transparent;">1500-2500</button>
+                        </form>
+
+                        <form method="POST" action="{% url 'shop_filter' %}">
+                            {% csrf_token %}
+                            <input type="hidden" name="minamount" value="2500">
+                            <input type="hidden" name="maxamount" value="3500">
+                            <button type="submit" class="mt-1 mb-3" style="border:none; background-color:transparent;">2500-3500</button>
+                        </form>
+
+
+
+                        <form action="{% url 'shop_filter' %}" method="POST">
+                            {% csrf_token %}
+                          <div class="price-input">
+                              
+                              
+                              <input placeholder='min amount' class="form-control mt-1" type="text" id="minamount" name="minamount">
+                              <input placeholder='max amount'class="form-control mt-1" type="text" id="maxamount" name="maxamount">
+                          
+                          </div>
+                          <button class="btn btn-outline-dark mt-2 mb-3 ">Filter</button>
+                        </form>
+                        </div>
+                            </div>
+
+
+
+                      
+                   
+                    
+  
+                </div>
+            </div>
+            
+            <div class="col-lg-9 col-md-7">
+  
+                <div class="filter__item">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-5">
+                            <div class="filter__sort mt-3">
+                                <span>Sort By</span>
+                                
+                            </div> 
+                        </div>
+                        <div class="col-lg-4 col-md-4">
+                            <div class="filter__found  mt-3">
+                                <h6><span>{{product_count}}</span> Products found</h6>
+                            </div>
+                        </div>
+                        {% comment %} <div class="col-lg-4 col-md-3">
+                            <div class="filter__option">
+                                <span class="icon_grid-2x2"></span>
+                                <span class="icon_ul"></span>
+                            </div>
+                        </div> {% endcomment %}
+                    </div>
+                </div>
+                
+                <div class="row ">
+  
+                  {% for product in products  %}
+  
+                  <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="product__item mt-5 op">
+                        <div class="product__item__pic set-bg io" data-setbg="{{product.image_1.url}}" >
+                            <ul class="">
+                                
+                                
+                                <li><a href="{{product.get_url}}"><i class="fa fa-eye"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="t1">
+                            
+                            {% if product.offer_price != product.price %}
+                            <h5><b>{{product.product_name}}</b></h5>
+                            <h6>{{product.category}}</h6>
+                            
+                            <h6><del class="text-secondary">₹{{product.price}}</del><span class="text-danger"> ₹{{product.offer_price}}</span><span class='text-secondary'> {{product.unit}}</span></h6>
+                            {% else %}
+                            <h5 class="mt-2"><b>{{product.product_name}}</b></h5>
+                            <h6 class="mt-2">{{product.sub_category}} in {{product.category}}</h6>
+                         
+                            <h5 class="mt-1">₹{{product.price}}<span class='text-secondary'> {{product.unit}}</span></h5>
+                            {% endif %}
+                        </div>
+                    </div>
+                  </div>
+                  
+                  {% endfor %}
+  
+                </div>
+                
+                
+                
+  
+            </div>
+        </div>
+    </div>
+  </section>
+  
+    <!-- Shop Section End -->
+
+    {% endblock content %}
+
+   

@@ -1,0 +1,46 @@
+{%  extends 'adminpanel/adminbase.html' %}
+
+{% load static %}
+{% block extracss %}
+<style>
+
+</style>
+    {% endblock extracss %}
+{% block content %}
+<div class="text-center mx-auto mt-2" style="min-width: 22rem;"></div>
+
+<div class="container mt-3" style="min-height: 33rem;">
+  <h2 class="text-center text-dark  mb-5">Edit Category</h2>
+  <form action="{% url 'editCategory' category.slug %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <div class="col form-group">
+        <label > Category Name</label><br>
+        {{form.category_name}}  
+    </div>
+    <div class="col form-group">
+        <label > Slug</label><br>
+        {{form.slug}}  
+    </div>
+    <div class="col-6 form-group">
+        <label > Description</label><br>
+        {{form.description}}  
+    </div>
+    <div class="col-6 form-group">
+        <label > Image</label><br>
+        {{form.cat_image}}  
+    </div>
+                     
+    <div class="col form-group">
+       <a href=""> <input type="submit" name="submit" id="submit" class="btn btn-warning" value="Save"/></a>
+    </div>
+  </form>
+</div>
+
+<script>
+    document.getElementById("id_category_name").onkeyup=function(){
+        document.getElementById("id_slug").value=document.getElementById("id_category_name").value.toLowerCase().replaceAll(" ","-");
+      }
+</script>
+
+{% endblock content %}

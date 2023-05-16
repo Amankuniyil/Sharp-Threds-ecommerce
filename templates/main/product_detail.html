@@ -1,0 +1,303 @@
+{%  extends 'base.html' %}
+
+{% load static %}
+
+
+{% block extracss %}
+
+<style>
+* {box-sizing: border-box;}
+
+.img-zoom-container {
+  position:absolute;
+}
+
+.img-zoom-lens {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  /*set the size of the lens:*/
+  width: 100px;
+  height: 100px;
+}
+
+.img-zoom-result {
+  border: 1px solid #d4d4d4;
+  /*set the size of the result div:*/
+  width: 500px;
+  height: 500px;
+}
+
+.qp{
+    height: 500px;
+}
+.koi{
+    margin-left: 340px;
+}
+
+</style>
+
+    {% endblock extracss %}
+
+
+{% block content %}
+<div class="fluid-container">
+
+<section class="shop-details">
+    <div class="product__details__pic">
+        <div class="container">
+            
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="product__details__breadcrumb">
+                        <a href="./index.html">Home</a>
+                        <a href="./shop.html">Shop</a>
+                        <span>Product Details</span>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-lg-4 col-md-3">
+            <ul class="nav nav-tabs" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active " data-toggle="tab" href="#tabs-1" role="tab">
+                        <div class="product__thumb__pic set-bg " data-setbg="{{product.image_1.url}}">
+                        </div>
+                    </a>
+                </li>
+                {% if product.image_2.url != '' %}
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab">
+                        <div class="product__thumb__pic set-bg" data-setbg="{{product.image_2.url}}">
+                        </div>
+                    </a>
+                    
+                </li>
+                {% endif %}
+                {% if product.image_3.url != '' %}
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab">
+                        <div class="product__thumb__pic set-bg" data-setbg="{{product.image_3.url}}">
+                        </div>
+                    </a>
+                </li>
+                {% endif %}
+                {% if product.image_3.url != '' %}
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#tabs-4" role="tab">
+                        <div class="product__thumb__pic set-bg" data-setbg="{{product.image_4.url}}">
+                            
+                        </div>
+                    </a>
+                </li>
+                {% endif %}
+
+
+            </ul>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="tab-content">
+                        
+                        <div class="tab-pane active" id="tabs-1" role="tabpanel">
+                            
+                            <div class="qp product__details__pic__item">
+                                <img id="myimage" class="pq" src="{{product.image_1.url}}" alt="">
+                            </div>
+                            
+                            
+                        </div>
+                       
+                    
+                        {% if product.image_2.url != '' %}
+                        
+                        <div class="tab-pane " id="tabs-2" role="tabpanel">
+                            <div class="qp product__details__pic__item ">
+                                <img  id="image2" class="pq" src="{{product.image_2.url}}" alt="">
+                            </div>
+                        </div>
+                        
+                        {% endif %}
+                        {% if product.image_3.url != '' %}
+                        <div class="tab-pane " id="tabs-3" role="tabpanel">
+                            <div class="qp product__details__pic__item">
+                                <img id="image3" class="pq" src="{{product.image_3.url}}" alt="">
+                            </div>
+                        </div>
+                        {% endif %}
+                        {% if product.image_4.url != '' %}
+                        <div class="tab-pane" id="tabs-4" role="tabpanel">
+                            <div class="qp product__details__pic__item">
+                                <img id="image4" class="pq" src="{{product.image_4.url}}" alt="">
+                               
+                            </div>
+                        </div>
+                        {% endif %}
+                        
+                    </div>
+                </div>
+                
+                
+                <div class="col-lg-4 col-md-3"> <div id="myresult" class="img-zoom-result"></div></div>
+                
+            </div>
+        
+            
+
+
+
+
+
+
+
+
+
+            
+
+        </div>
+    </div>
+    <div class="product__details__content">
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div class="col-lg-8">
+                    <div class="product__details__text">
+                        
+                        <h3>{{product.product_name}}</h3>
+                        <h4>{{product.sub_category}}</h4>
+                        <h5>{{product.category}}</h5>
+                        
+                        {% if product.stock <= 0 %}
+
+                        <h3  class="danger-btn">OUT OF STOCK</h3>
+
+                        
+
+                        {% else %}
+                        <form action="{% url 'add_cart' product.id %}" method="POST">
+                            {% csrf_token %}
+                            <div class="d-flex mb-2">
+                                
+                                <select class="koi" id="size" name="size" required  onchange="getval(this);">
+                                    <option value="" disabled selected>Size</option> 
+
+                                    {% for i in product.variation_set.sizes %}
+
+                                    <option value="{{i.variation_value}}">{{i.variation_value}}</option>
+
+                                    {% endfor %}
+
+                                </select>
+                            </div>
+
+                            
+                            <h4>₹{{product.price}} </h4>
+
+                            <button type="submit" class="btn primary-btn">ADD TO CART</button>
+
+                            {% comment %} {% endif %} {% endcomment %}
+
+                        {% endif %}
+                        
+                        
+                        <p>{{product.description}}</p>
+                        
+                        
+                        <div class="product__details__btns__option">
+                            
+                            <a href= "{% url 'add_wishlist' product.id %}"><i class="fa fa-heart"></i> add to wishlist</a>
+                           
+                        </div>
+                        <div class="product__details__last__option">
+                            <h5><span>Guaranteed Safe Checkout</span></h5>
+                            <img src="img/shop-details/details-payment.png" alt="">
+                            
+                            
+                        </div>
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    
+           
+</section>
+</div>
+<script>
+    $(document).ready(function() {
+    $('#image-container').zoom({
+      magnify: 2 // magnification factor, default is 1
+    })
+  })
+</script>
+
+<script>
+    function imageZoom(imgID, resultID) {
+      var img, lens, result, cx, cy;
+      img = document.getElementById(imgID);
+      result = document.getElementById(resultID);
+      /*create lens:*/
+      lens = document.createElement("DIV");
+      lens.setAttribute("class", "img-zoom-lens");
+      /*insert lens:*/
+      img.parentElement.insertBefore(lens, img);
+      /*calculate the ratio between result DIV and lens:*/
+      cx = result.offsetWidth / lens.offsetWidth;
+      cy = result.offsetHeight / lens.offsetHeight;
+      /*set background properties for the result DIV:*/
+      result.style.backgroundImage = "url('" + img.src + "')";
+      result.style.backgroundSize = (img.width * cx) + "px " + (img.height * cy) + "px";
+      /*execute a function when someone moves the cursor over the image, or the lens:*/
+      lens.addEventListener("mousemove", moveLens);
+      img.addEventListener("mousemove", moveLens);
+      /*and also for touch screens:*/
+      lens.addEventListener("touchmove", moveLens);
+      img.addEventListener("touchmove", moveLens);
+      function moveLens(e) {
+        var pos, x, y;
+        /*prevent any other actions that may occur when moving over the image:*/
+        e.preventDefault();
+        /*get the cursor's x and y positions:*/
+        pos = getCursorPos(e);
+        /*calculate the position of the lens:*/
+        x = pos.x - (lens.offsetWidth / 2);
+        y = pos.y - (lens.offsetHeight / 2);
+        /*prevent the lens from being positioned outside the image:*/
+        if (x > img.width - lens.offsetWidth) {x = img.width - lens.offsetWidth;}
+        if (x < 0) {x = 0;}
+        if (y > img.height - lens.offsetHeight) {y = img.height - lens.offsetHeight;}
+        if (y < 0) {y = 0;}
+        /*set the position of the lens:*/
+        lens.style.left = x + "px";
+        lens.style.top = y + "px";
+        /*display what the lens "sees":*/
+        result.style.backgroundPosition = "-" + (x * cx) + "px -" + (y * cy) + "px";
+      }
+      function getCursorPos(e) {
+        var a, x = 0, y = 0;
+        e = e || window.event;
+        /*get the x and y positions of the image:*/
+        a = img.getBoundingClientRect();
+        /*calculate the cursor's x and y coordinates, relative to the image:*/
+        x = e.pageX - a.left;
+        y = e.pageY - a.top;
+        /*consider any page scrolling:*/
+        x = x - window.pageXOffset;
+        y = y - window.pageYOffset;
+        return {x : x, y : y};
+      }
+    }
+    </script>
+
+<script>
+    // Initiate zoom effect:
+    imageZoom("myimage", "myresult");
+   
+    </script>
+
+
+   
+
+{% endblock content %}

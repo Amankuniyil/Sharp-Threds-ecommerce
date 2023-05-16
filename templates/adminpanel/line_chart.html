@@ -1,0 +1,30 @@
+
+{%  extends 'adminpanel/adminbase.html' %}
+
+{% load static %}
+
+
+
+
+{% block content %}
+    <canvas id="line-chart"></canvas>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        var ctx = document.getElementById('line-chart').getContext('2d');
+        var chart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Label 1', 'Label 2', 'Label 3', 'Label 4', 'Label 5'],
+                datasets: [{
+                    label: 'My Dataset',
+                    data: {{ data|safe }},
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {}
+        });
+    </script>
+{% endblock %}

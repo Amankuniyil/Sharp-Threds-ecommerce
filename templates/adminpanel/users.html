@@ -1,0 +1,76 @@
+{%  extends 'adminpanel/adminbase.html' %}
+
+{% load static %}
+{% block extracss %}
+<style>
+.e1{
+  margin-left:100px;
+  margin-top: 30px;
+}
+</style>
+    {% endblock extracss %}
+{% block content %}
+           
+
+<h3 class="e1">Users</h3>
+<table class="e1 table table-bordered w-auto">
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Username</th>
+            <th>Email</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        {% for a in users %}
+        
+        <tr>
+            
+            
+            <td>{{a.first_name }}</td>
+            <td>{{a.last_name}}</td>
+            <td>{{a.email}}</td>
+            <td>{{a.phone_number}}
+            </td>
+            <td>
+
+   
+            
+                {% if a.is_active %}
+                                <td>
+                                    <a href="{% url 'blockuser' a.id %}">
+                                        <button onclick="return confirm('Are you sure you want to block this user?');" class="btn btn-danger btn-rounded btn-sm">Block</button>
+                                      </a>
+                                 
+                                </td>
+                {% else %}
+                                <td>
+                                    <a href="{% url 'unblockuser' a.id %}">
+                                        <button class="btn btn-secondary btn-rounded btn-sm">Unblock</button>
+                                      </a>
+                                 
+                                </td>
+                {% endif %}
+            </td>
+            
+        </tr>
+        </tbody>
+         
+        {%endfor%}
+        </tbody>
+
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+$("#myInput").on("keyup", function() {
+  var value = $(this).val().toLowerCase();
+  $("#myTable tr").filter(function() {
+    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+  });
+});
+});
+</script>
+
+{% endblock content %}

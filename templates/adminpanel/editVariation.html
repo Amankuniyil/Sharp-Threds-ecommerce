@@ -1,0 +1,44 @@
+{%  extends 'adminpanel/adminbase.html' %}
+
+{% load static %}
+{% block extracss %}
+<style>
+
+</style>
+    {% endblock extracss %}
+{% block content %}
+
+<div class="text-center mx-auto mt-2 w-50"> </div>
+
+<div class="container mt-3" style="min-height: 33rem;">
+  <h2 class="text-center text-dark  mb-5">Edit Variation</h2>
+  <form action="{% url 'edit_product_variation' variation.id %}" method="post">
+    {% csrf_token %}
+
+    <div class="col form-group">
+        <label >Product</label><br>
+        {{form.product}}
+    </div>
+    <div class="col form-group">
+        <label >Variation Category</label><br>
+        {{form.variation_category}}  
+    </div>
+    <div class="col form-group">
+        <label >Value</label><br>
+        {{form.variation_value}}  
+    </div>
+    <div class="col form-group">
+        <label >Price Multiplier</label><br>
+        {{form.price_multiplier}}
+    </div>
+    <div class="col form-group">
+      <label > Is_Active</label><br>
+      {{form.is_active}}
+    </div>
+    <div class="col form-group">
+       <a href=""> <input type="submit" name="submit" id="submit" class="btn btn-warning" value="Save"/></a>
+    </div>
+  </form>
+</div>
+
+{% endblock content %}

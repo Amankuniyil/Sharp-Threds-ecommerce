@@ -1,0 +1,80 @@
+{%  extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+
+    <section class="checkout spad">
+        <div class="container">
+            <div class="checkout__form">
+                <h4>Billing Details</h4>
+                <div class="card mb-3">
+    
+                    {% if address %}
+
+                    <h5 class="card-header">DELIVERY ADDRESS</h5>    
+
+                    {% for item in address %}
+
+                    <div class="card-body form-check row">
+                            <div class="col-12">
+    
+                                {% if forloop.counter == 1 %}
+                                <input class="form-check-input d-block ml-1 mt-2" value="{{item.id}}" type="radio" name="flexRadioDefault" checked>
+                                {%else%}
+                                <input class="form-check-input d-block ml-1 mt-2" value="{{item.id}}" type="radio" name="flexRadioDefault">
+                                {%endif%}
+                                
+                                <div class="d-block ml-4">
+                                    <p class="card-text mb-0"><b>{{item.full_name}}</b> , {{item.address_line1}}, {{item.address_line2}}, {{item.city}}, {{item.district}}, {{item.state}}, {{item.pincode}}</p>
+                                    <p class="cart-text mb-0">{{item.email}}</p>
+                                    <p class="cart-text mb-0">{{item.phone}}</p>
+                                </div>
+                                <div class="mt-3">
+                                    <a href="{% url 'edit_address' item.id %}"><button class="btn btn-warning btn-sm mr-2">Edit</button></a>
+                                    <a href="{% url 'delete_address' item.id %}"><button class="btn btn-danger btn-sm ml-2">Delete</button></a>
+                                    
+                                    <button class="btn btn-danger btn-sm ml-2" data-toggle="modal" data-target="#modal{{item.id}}">Delete</button>
+                                  </div>
+                            </div>              
+                        </div>                           
+                        <hr>
+                    {%endfor%}
+                    <div class="card-body form-check row">
+                        <div class="col-12  py-2">
+                            <div class="row d-flex align-content-center">
+                                <div class="col-12 d-block ml-2 d-flex">
+                                    <p class="card-text mt-1 h5"><b class="text-center">Add New Address</b></p>
+                                    <a href="{% url 'add_address' %}" class="col-3 btn ml-auto mr-5 text-white"  style="background-color: #7fad39;">Add</a>
+                                    
+                                    
+                                </div>
+                            </div>
+                            
+                            
+                        </div>              
+                    </div>
+                    {%else%}
+                    <div class="card-body form-check row d-flex align-items-center" style="height: 328px;">
+                        <div class="col-12  py-5">
+                            <div class="row d-flex align-content-center">
+                                <div class="col-12 d-block ml-2">
+                                    <p class="card-text mb-0 h2 text-center"><b>No addresses found in your account!</b></p>
+                                </div>
+                                <a href="" class="col-3 btn text-white mx-auto mt-3"  style="background-color: #7fad39;">Add Address</a>
+                            </div>
+                            
+                        </div>              
+                    </div>
+                    {%endif%}                          
+
+                </div> 
+            </div>
+        </div>
+    </section>
+
+
+    
+                           
+    {% endblock content %}

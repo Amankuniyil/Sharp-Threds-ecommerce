@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-
+    beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-
+    0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+    crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <title>Document</title>
+    <style>
+      .card {
+  width: 350px;
+  padding: 10px;
+  border-radius: 20px;
+  background: #dbf6ff;
+  border: none;
+  height: 350px;
+  position: relative;
+}
+
+.container {
+  height: 100vh;
+}
+
+body {
+  background: #ffffff;
+}
+
+.mobile-text {
+  color: #020202b8;
+  font-size: 15px;
+}
+
+.form-control {
+  margin-right: 12px;
+}
+
+.form-control:focus {
+  color: #495057;
+  background-color: #fff;
+  border-color: #ff8880;
+  outline: 0;
+  box-shadow: none;
+}
+
+.cursor {
+  cursor: pointer;
+}
+
+.aq1{
+  margin-left: 40%;
+  margin-top: 180px;
+}
+.aw1{
+  color: #fff;
+  background-color: #495057;
+  margin-top: 10px;
+  
+}
+    </style>
+</head>
+<body>
+   
+
+
+        <div class=" aq1">
+        <div class="card py-5 px-3">
+            <h5 class="m-0">Mobile phone verification</h5><span class="mobile-text">Enter the code we just send on your mobile phone <b class="text-danger">{{ user.phone_number }}</span>
+            <form method="post" action="{% url 'verify_otp' %}">
+            {% csrf_token %}
+            <label for="phone_number"></label>
+          <input class="form-control" type="text" name="otp" required>
+          <div>
+          <button type="submit" class="aw1 btn btn-primary mb-2">Submit</button>
+        </div>
+          </div>
+    </div>
+</body>
+</html>
