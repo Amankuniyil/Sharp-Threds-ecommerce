@@ -22,12 +22,12 @@ class AuthMiddleware:
             
 
 
-            if not request.user.is_authenticated and request.path != '/login/':
-                if request.path != '/register/' or request.path != '/passwordReset/' or request.path != '/verifyOtp/' or request.path != '/resetdone/':
-                    response = self.get_response(request)
-                    return response
-                else:
-                     return render(request, "accounts/login.html")
+            if not request.user.is_authenticated and request.path != '/login/' :
+                #if request.path != '/register' or request.path != '/passwordReset' or request.path != '/verifyOtp/' or request.path != '/resetdone/':
+                    return render(request, "accounts/login.html")
+                #else:
+                     #response = self.get_response(request)
+                     #return response
             response = self.get_response(request)
             return response
     
