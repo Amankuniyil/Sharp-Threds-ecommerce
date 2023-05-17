@@ -92,7 +92,7 @@ def products(request):
   context = {
     'products': page_obj
   }
-  return render(request, 'adminPanel/products.html', context)
+  return render(request, 'adminpanel/products.html', context)
 
 
 
@@ -133,7 +133,7 @@ def editProduct(request, id):
     'form':form,
     'product':product,
   }
-  return render(request, 'adminPanel/editProduct.html', context)
+  return render(request, 'adminpanel/editProduct.html', context)
 
 
 
@@ -194,7 +194,7 @@ def product_variations(request):
   context = {
     'variations':page_obj,
   }
-  return render(request, 'adminPanel/product_variations.html', context)
+  return render(request, 'adminpanel/product_variations.html', context)
 
 
 def delete_product_variation(request, id):
@@ -223,7 +223,7 @@ def edit_product_variation(request, id):
     'form':form,
     'variation':variation,
   }
-  return render(request, 'adminPanel/editVariation.html', context)
+  return render(request, 'adminpanel/editVariation.html', context)
 
 
 def add_product_variation(request):
@@ -242,7 +242,7 @@ def add_product_variation(request):
   context = {
     'form':form
   }
-  return render(request, 'adminPanel/addVariation.html', context)
+  return render(request, 'adminpanel/addVariation.html', context)
 
 
 
@@ -277,7 +277,7 @@ def addCategory(request):
     context = {
       'form':form,
     }
-    return render(request, 'adminPanel/addCategory.html', context)
+    return render(request, 'adminpanel/addCategory.html', context)
   
 
 
@@ -300,7 +300,7 @@ def editCategory(request, slug):
     'form':form,
     'category':category,
   }
-  return render(request, 'adminPanel/editCategory.html', context)
+  return render(request, 'adminpanel/editCategory.html', context)
 
 
 
@@ -321,7 +321,7 @@ def subCategories(request, category_slug):
     'subCategories':subCategories,
     'category_slug':category_slug,
   }
-  return render(request, 'adminPanel/subCategories.html', context)
+  return render(request, 'adminpanel/subCategories.html', context)
 
 
 
@@ -348,7 +348,7 @@ def addSubCategory(request, category_slug):
       'form':form,
       'category':category
     }
-    return render(request, 'adminPanel/addSubCategory.html', context)
+    return render(request, 'adminpanel/addSubCategory.html', context)
   
 
 def editSubCategory(request, slug):
@@ -371,7 +371,7 @@ def editSubCategory(request, slug):
     'form':form,
     'subCategory':subCategory,
   }
-  return render(request, 'adminPanel/editSubCategory.html', context)
+  return render(request, 'adminpanel/editSubCategory.html', context)
 
 
 def deleteSubCategory(request, slug):
@@ -392,7 +392,7 @@ def orders(request):
   context = {
     'orders':page_obj,
   }
-  return render(request, 'adminPanel/orders.html', context)
+  return render(request, 'adminpanel/orders.html', context)
 
 
 def update_order(request, id):
@@ -421,7 +421,7 @@ def coupons(request):
   context = {
     'coupons':coupons,
   }
-  return render(request, 'adminPanel/coupons.html', context)
+  return render(request, 'adminpanel/coupons.html', context)
 
 
 
@@ -439,7 +439,7 @@ def add_coupon(request):
   context = {
     'form':form,
   }
-  return render(request, 'adminPanel/addCoupon.html', context)
+  return render(request, 'adminpanel/addCoupon.html', context)
 
 
 
