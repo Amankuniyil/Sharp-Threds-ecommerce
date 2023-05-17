@@ -149,7 +149,7 @@ def add_wishlist(request,id):
 
 
 def wishlist(request):
-    #if request.user.is_authenticated:
+    if request.user.is_authenticated:
         # if Wishlist.objects.filter(wishlist_id = _wishlist_id(request)).exists():
         #     wishlist = Wishlist.objects.filter(wishlist_id = _wishlist_id(request))
         wishlistitem = WishlistItem.objects.filter(user = request.user)
@@ -157,6 +157,8 @@ def wishlist(request):
                 'wishlistitem':wishlistitem
             }
         return render(request,'user/wishlist.html',context)
+    else:
+        return render(request, 'accounts/login.html')
 
     
 

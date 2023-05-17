@@ -91,11 +91,15 @@ def userLogin(request):
 
 
 def user(request):
+    if not request.user.is_authenticated:
+        return render(request, "accounts/login.html")
+    
+    else:
 
-    context = {}
-    if request.user.is_authenticated:
-        context['user'] = request.user
-    return render( request,'accounts/user.html',context)  
+        context = {}
+        if request.user.is_authenticated:
+            context['user'] = request.user
+        return render( request,'accounts/user.html',context)  
 
 
 def userLogout(request):
