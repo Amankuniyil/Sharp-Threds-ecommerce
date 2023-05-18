@@ -506,7 +506,7 @@ def sales_report_month(request,id):
         'out_of_delivery':out_of_delivery,
         'delivered':delivered,
     }
-    return render(request,'adminPanel/sales_report_table.html',context)
+    return render(request,'adminpanel/sales_report_table.html',context)
   
 
 def sales_report_year(request,id):
@@ -516,7 +516,7 @@ def sales_report_year(request,id):
         'orders':orders,
         'today_date':today_date
     }
-    return render(request,'adminPanel/sales_report_table.html',context) 
+    return render(request,'adminpanel/sales_report_table.html',context) 
 
   
 def pdf_report(request, start_date, end_date):
