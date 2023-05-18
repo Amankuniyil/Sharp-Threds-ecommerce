@@ -27,9 +27,6 @@ SECRET_KEY = 'django-insecure-=@a!*8ydb4xn(z2u0npg9$56-!2h(f&q_6gc=cen#oz8s70d&@
 DEBUG = True
 
 
-
-
-
 ALLOWED_HOSTS = ['*']
 
 
@@ -176,8 +173,6 @@ MEDIA_ROOT = BASE_DIR/'media'
 
 
 
-
-OTP_SECRET=''
 
 EMAIL_HOST='smtp.gmail.com'
 EMAIL_PORT=587
