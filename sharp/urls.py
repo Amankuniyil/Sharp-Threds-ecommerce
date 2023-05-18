@@ -36,4 +36,4 @@ urlpatterns = [
     path('reset/done/', auth_views.PasswordResetCompleteView.as_view(template_name='password/password_reset_complete.html'), name='password_reset_complete'),    
  ]
 
-handler404 = 'main.views.error_404'
+handler404 = 'main.views.handler404'

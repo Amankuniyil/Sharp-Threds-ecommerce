@@ -147,7 +147,7 @@ def search(request):
 
 
 
-def error_404(request, exception):
+def handler404(request, exception):
     return render(request, 'main/404.html')
 
 
