@@ -69,7 +69,7 @@ body {
 
         <div class=" aq1">
         <div class="card py-5 px-3">
-            <h5 class="m-0">Mobile phone verification</h5><span class="mobile-text">Enter the code we just send on your mobile phone <b class="text-danger">{{ user.phone_number }}</span>
+            <h5 class="m-0">Email verification</h5><span class="mobile-text">Enter the code we just send on your mobile phone <b class="text-danger">{{ user.phone_number }}</span>
             <form method="post" action="{% url 'verify_otp' %}">
             {% csrf_token %}
             <label for="phone_number"></label>

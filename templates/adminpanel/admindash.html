@@ -65,7 +65,19 @@
         #cellPaiChart{
             height: 160px;
         }
-        
+        .koi{
+            height: 100px;
+            width: 200px;
+            margin-left: 10px;
+        }
+        .jkl{
+            margin-left: 120px;
+        }
+        .p1{
+            margin-left: 18px;
+            list-style-type: none;
+            
+        }
     </style>
 </head>
 
@@ -80,95 +92,35 @@
                     </li>
                     
 
-                    <ul class="">                            
-                        <li><i class=""></i><a href="{%  url 'users' %}">Users</a></li>
-                        <li><i class=""></i><a href="{%  url 'products' %}">Products</a></li>
-                        <li><i class="ms-5"></i><a href="{%  url 'categories' %}">Categories</a></li>
-                        <li><i class="ms-5"></i><a href="{%  url 'orders' %}">Orders</a></li>
-                        <li><i class=""></i><a href="{%  url 'product_offers' %}">Product Offers</a></li>
-                        <li><i class=""></i><a href="{%  url 'sales_report' %}">Sales </a></li>
-                        <li><i class=""></i><a href="ui-switches.html">Switches</a></li>
-                        <li><i class=""></i><a href="ui-grids.html">Grids</a></li>
-                        <li><i class=""></i><a href="ui-typgraphy.html">Typography</a></li>
+                    <ul class="p1">       
+                                           
+                        <li><i class="p1"></i><a href="{%  url 'users' %}">Users</a></li>
+                        <li><i class="p1"></i><a href="{%  url 'products' %}">Products</a></li>
+                        <li><i class="p1"></i><a href="{%  url 'categories' %}">Categories</a></li>
+                        <li><i class="p1"></i><a href="{%  url 'orders' %}">Orders</a></li>
+                        <li><i class="p1"></i><a href="{%  url 'product_offers' %}">Product Offers</a></li>
+                        <li><i class="p1"></i><a href="{%  url 'sales_report' %}">Sales </a></li>
+                        <li><i class="p1"></i><a href="{%  url 'coupons' %}">Coupon</a></li>
+                    
                     </ul>
 
-                    <li class="menu-title">UI elements</li><!-- /.menu-title -->
-                    <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-cogs"></i>Components</a>
-                        <ul class="sub-menu children dropdown-menu">                            <li><i class="fa fa-puzzle-piece"></i><a href="ui-buttons.html">Buttons</a></li>
-                            <li><i class="fa fa-id-badge"></i><a href="ui-badges.html">Badges</a></li>
-                            <li><i class="fa fa-bars"></i><a href="ui-tabs.html">Tabs</a></li>
+                 
+                    
+                   
 
-                            <li><i class="fa fa-id-card-o"></i><a href="ui-cards.html">Cards</a></li>
-                            <li><i class="fa fa-exclamation-triangle"></i><a href="ui-alerts.html">Alerts</a></li>
-                            <li><i class="fa fa-spinner"></i><a href="ui-progressbar.html">Progress Bars</a></li>
-                            <li><i class="fa fa-fire"></i><a href="ui-modals.html">Modals</a></li>
-                            <li><i class="fa fa-book"></i><a href="ui-switches.html">Switches</a></li>
-                            <li><i class="fa fa-th"></i><a href="ui-grids.html">Grids</a></li>
-                            <li><i class="fa fa-file-word-o"></i><a href="ui-typgraphy.html">Typography</a></li>
-                        </ul>
-                    </li>
-                    <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Tables</a>
-                        <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-table"></i><a href="tables-basic.html">Basic Table</a></li>
-                            <li><i class="fa fa-table"></i><a href="tables-data.html">Data Table</a></li>
-                        </ul>
-                    </li>
-                    <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Forms</a>
-                        <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-th"></i><a href="forms-basic.html">Basic Form</a></li>
-                            <li><i class="menu-icon fa fa-th"></i><a href="forms-advanced.html">Advanced Form</a></li>
-                        </ul>
-                    </li>
+                   
+                   
+                   
 
-                    <li class="menu-title">Icons</li><!-- /.menu-title -->
-
-                    <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-tasks"></i>Icons</a>
-                        <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-fort-awesome"></i><a href="font-fontawesome.html">Font Awesome</a></li>
-                            <li><i class="menu-icon ti-themify-logo"></i><a href="font-themify.html">Themefy Icons</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="widgets.html"> <i class="menu-icon ti-email"></i>Widgets </a>
-                    </li>
-                    <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-bar-chart"></i>Charts</a>
-                        <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-line-chart"></i><a href="charts-chartjs.html">Chart JS</a></li>
-                            <li><i class="menu-icon fa fa-area-chart"></i><a href="charts-flot.html">Flot Chart</a></li>
-                            <li><i class="menu-icon fa fa-pie-chart"></i><a href="charts-peity.html">Peity Chart</a></li>
-                        </ul>
-                    </li>
-
-                    <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-area-chart"></i>Maps</a>
-                        <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-map-o"></i><a href="maps-gmap.html">Google Maps</a></li>
-                            <li><i class="menu-icon fa fa-street-view"></i><a href="maps-vector.html">Vector Maps</a></li>
-                        </ul>
-                    </li>
-                    <li class="menu-title">Extras</li><!-- /.menu-title -->
-                    <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-glass"></i>Pages</a>
-                        <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-sign-in"></i><a href="page-login.html">Login</a></li>
-                            <li><i class="menu-icon fa fa-sign-in"></i><a href="page-register.html">Register</a></li>
-                            <li><i class="menu-icon fa fa-paper-plane"></i><a href="pages-forget.html">Forget Pass</a></li>
-                        </ul>
-                    </li>
+                    
+                    
                 </ul>
             </div><!-- /.navbar-collapse -->
         </nav>
     </aside>
     <!-- /#left-panel -->
     <h1>Sales Report</h1>
-<div class="graph-container">
-    <canvas id="sales-chart"></canvas>
-</div>
+
     <!-- Right Panel -->
     <div id="right-panel" class="right-panel">
         <!-- Header-->
@@ -239,58 +191,59 @@
         *************-->
         <div class="content-body">
           <div class="container-fluid">
-              <div class="row page-titles mx-0">
+              <div class="row page-titles ">
+                
                  
-              <div class="row">
+              <div class="row jkl">
                   <div class="col-lg-3 col-sm-6">
-                      <div class="card ml">
-                          <div class="stat-widget-one card-body">
-                              <div class="stat-icon d-inline-block">
-                                  <i class="ti-money text-success border-success"></i>
+                      <div class="card koi">
+                          <div class="stat-widget-one ">
+                              <div class="d-inline-block">
+                                  <i class=" text-success border-success"></i>
                               </div>
                               <div class="stat-content d-inline-block">
-                                  <div class="stat-text">Today's Order </div>
-                                  <div class="stat-digit">{{order_count_in_day}}</div>
+                                  <div class="stat-text"><h4>Today's Order </h4></div>
+                                  <div class="stat-digit pt-3">{{order_count_in_day}}</div>
                               </div>
                           </div>
                       </div>
                   </div>
                   <div class="col-lg-3 col-sm-6">
-                      <div class="card">
-                          <div class="stat-widget-one card-body ">
-                              <div class="stat-icon ">
-                                  <i class="ti-user text-primary border-primary"></i>
+                      <div class="card koi">
+                          <div class="stat-widget-one  ">
+                              <div class=" ">
+                                  <i class=" text-primary border-primary"></i>
                               </div>
-                              <div class="stat-content d-inline-block">
-                                  <div class="stat-text">Customer</div>
-                                  <div class="stat-digit">{{number_of_users}}</div>
+                              <div class="h3 stat-content d-inline-block">
+                                  <div class="stat-text"><h4>Customer</h4></div>
+                                  <div class="stat-digit pt-3">{{number_of_users}}</div>
                               </div>
                           </div>
                       </div>
                   </div>
            
                     <div class="col-lg-3 col-sm-6">
-                        <div class="card">
-                            <div class="stat-widget-one card-body">
-                                <div class="stat-icon ">
-                                    <i class="ti-money text-success border-success"></i>
+                        <div class="card koi">
+                            <div class="h3 stat-widget-one ">
+                                <div class=" ">
+                                    <i class=" text-success border-success"></i>
                                 </div>
-                                <div class="stat-content ">
-                                    <div class="stat-text">This Week's Order</div>
-                                    <div class="stat-digit">{{order_count_in_week}}</div>
+                                <div class=" stat-content ">
+                                    <div class="stat-text"><h4>This Week's Order</h4></div>
+                                    <div class="stat-digit pt-3">{{order_count_in_week}}</div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-3 col-sm-6">
-                      <div class="card">
-                          <div class="stat-widget-one card-body">
-                              <div class="stat-icon d-inline-block">
-                                  <i class="ti-money text-success border-success"></i>
+                      <div class="card koi">
+                          <div class="stat-widget-one ">
+                              <div class=" ">
+                                  <i class=" text-success border-success"></i>
                               </div>
-                              <div class="stat-content d-inline-block">
-                                  <div class="stat-text">Total Month sale</div>
-                                  <div class="stat-digit">{{order_count_in_month}}</div>
+                              <div class=" stat-content ">
+                                  <div class="stat-text"><h4>Total Month sale</h4></div>
+                                  <div class=" stat-digit pt-3">{{order_count_in_month}}</div>
                               </div>
                           </div>
                       </div>
