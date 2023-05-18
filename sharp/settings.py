@@ -27,10 +27,7 @@ SECRET_KEY = 'django-insecure-=@a!*8ydb4xn(z2u0npg9$56-!2h(f&q_6gc=cen#oz8s70d&@
 DEBUG = True
 
 
-
-
-
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['16.16.210.194','localhost']
 
 
 # Application definition
@@ -107,9 +104,9 @@ AUTH_USER_MODEL = 'accounts.Account'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'dbsharp',
-        'USER': 'postgres',
-        'PASSWORD': '1234',
+        'NAME': 'sharp',
+        'USER': 'aman',
+        'PASSWORD': 'aman123',
         'HOST': 'localhost',
         'PORT': '5432',
     }
@@ -156,16 +153,17 @@ USE_TZ = True
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-STATIC_URL = 'static/'
+STATIC_URL = "static/"
+
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR,'static')
+    BASE_DIR / "static",
 ]
 
+STATIC_ROOT = BASE_DIR / "staticfiles"
 
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
-
 
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
@@ -176,6 +174,8 @@ MEDIA_ROOT = BASE_DIR/'media'
 
 
 
+
+OTP_SECRET=''
 
 EMAIL_HOST='smtp.gmail.com'
 EMAIL_PORT=587
@@ -189,5 +189,3 @@ MEDIA_URL = "/media/"
 
 RAZORPAY_ID = 'rzp_test_bSa79V3eWORvIC'
 RAZORPAY_KEY = 'iC9KUbEVMQ8IGOswXKD9OGCz'
-
-
