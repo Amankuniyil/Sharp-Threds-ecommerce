@@ -480,7 +480,7 @@ def sales_report(request):
     }
     
 
-    return render(request, 'adminPanel/sales_report.html', context)
+    return render(request, 'adminpanel/sales_report.html', context)
 
  
 def sales_report_month(request,id):
