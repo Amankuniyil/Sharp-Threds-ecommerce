@@ -1,0 +1,71 @@
+[33mcommit 53e49ca079750af69f2cb9bc5a9de47f9a272252[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: Aman Ahmed <amanahmedbarca@gmail.com>
+Date:   Thu May 18 17:34:31 2023 +0530
+
+    adminp
+
+[33mcommit a836406650c7e2b60d07ae23113e2da486375643[m
+Author: Aman Ahmed <amanahmedbarca@gmail.com>
+Date:   Thu May 18 13:24:31 2023 +0530
+
+    settingsdebug
+
+[33mcommit edcf5b1309df4843ed4ed8d63de4354a08630fe8[m
+Author: Aman Ahmed <amanahmedbarca@gmail.com>
+Date:   Thu May 18 13:07:32 2023 +0530
+
+    handler 404
+
+[33mcommit 78cea355b43c7227c08918b87ee3098d83745f36[m
+Author: Aman Ahmed <amanahmedbarca@gmail.com>
+Date:   Thu May 18 09:54:33 2023 +0530
+
+    addadmin
+
+[33mcommit f6e189f247f2c28a09402a370e15cd4a8ff80c09[m
+Author: Aman Ahmed <amanahmedbarca@gmail.com>
+Date:   Wed May 17 19:24:33 2023 +0530
+
+    userAUTH
+
+[33mcommit b7afd78b505e6901b7bbd871ca22c6ee7f84436c[m
+Author: Aman Ahmed <amanahmedbarca@gmail.com>
+Date:   Wed May 17 16:58:44 2023 +0530
+
+    undoCmnt
+
+[33mcommit 3c7bf8777afe348b2152b9b0fa10a752bc227486[m
+Author: Aman Ahmed <amanahmedbarca@gmail.com>
+Date:   Wed May 17 16:50:23 2023 +0530
+
+    textd
+
+[33mcommit 18cc089ccc3808bbe430b6035b1c95d2f9ae4990[m
+Author: Aman Ahmed <amanahmedbarca@gmail.com>
+Date:   Wed May 17 16:35:59 2023 +0530
+
+    admindashNcommentmid
+
+[33mcommit 11c8ceed68f2eeaf26692e010a3549425aa508c9[m
+Author: Aman Ahmed <amanahmedbarca@gmail.com>
+Date:   Wed May 17 14:05:09 2023 +0530
+
+    adminpanel
+
+[33mcommit 252a16ea72ac38275c6da82aa076af7f0832193b[m
+Author: Aman Ahmed <amanahmedbarca@gmail.com>
+Date:   Wed May 17 12:14:23 2023 +0530
+
+    pytz remove
+
+[33mcommit af5da7c50cd860ee074f8a6712b0f0acb85b90f0[m
+Author: Aman Ahmed <amanahmedbarca@gmail.com>
+Date:   Wed May 17 11:41:37 2023 +0530
+
+    middlewarenreq
+
+[33mcommit 84e2e94bcd17299df8d395943d161032b6822943[m
+Author: Aman Ahmed <amanahmedbarca@gmail.com>
+Date:   Tue May 16 15:37:07 2023 +0530
+
+    first commit
