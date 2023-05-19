@@ -24,10 +24,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-=@a!*8ydb4xn(z2u0npg9$56-!2h(f&q_6gc=cen#oz8s70d&@'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 
-ALLOWED_HOSTS = ['16.16.210.194','localhost','sharpthreads.store']
+ALLOWED_HOSTS = ['sharpthreads.store']
 
 
 # Application definition
@@ -159,7 +159,13 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
 
-STATIC_ROOT = BASE_DIR / "staticfiles"
+#STATIC_ROOT = BASE_DIR / "staticfiles"
+
+
+
+STATIC_ROOT = '/home/ubuntu/Sharp-Threds-ecommerce/staticfiles'
+
+STATIC_FILES = ['/home/ubuntu/Sharp-Threds-ecommerce/static']
 
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
