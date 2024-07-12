@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-=@a!*8ydb4xn(z2u0npg9$56-!2h(f&q_6gc=cen#oz8s70d&@
 DEBUG = False
 
 
-ALLOWED_HOSTS = ['sharpthreads.store']
+ALLOWED_HOSTS = ['sharp-threads.shop']
 
 
 # Application definition
